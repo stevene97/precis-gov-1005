@@ -24,6 +24,17 @@ The data to conduct this analysis would have to come from multiple sources. Firs
 The graph below shows 2018 voter registration statistics as of July 30, 2018, the last possible day to register to vote for the governor's primary.
 ```{r}
 voterstats2018 <- read_excel('2018pri_party.xlsx')
-knitr::kable(glimpse(voterstats2018))
+glimpse(voterstats2018)
 ```
-The goal is to use the website provided above to see these numbers over time. The data that is publicly available goes back to 1994.
+The goal is to use the website provided above to see these numbers over time. The data shows that there are 68 counties in Florida. The data that is publicly available goes back to 1994 (on the website).
+
+Of course, I would want to compare these numbers to the results of the election itself and use 'mutate' to generate turnout numbers (total number of votes in the Democratic primary / registered Democratic Party voters). These datasets are also avaiable through the state of Florida's website.
+
+```{r}
+electionstats2018 <- read_csv('20180828_ElecResultsFL.csv')
+glimpse(electionstats2018)
+```
+
+## Where I'm going from here
+
+My next few steps would be to find the datasets using precinct-level data for the specific counties I'm thinking of looking at. I'm thinking of these counties specifically to analyze precinct-level data and identify which precincts saw the highest change in turnout within these counties, and see how these specific precincts were correlated with the share of the vote that went for Andrew Gillum. I'm only thinking of sampling these counties because the number of precincts is too large within Florida as a whole. Miami-Dade County alone, for example, has 783 precincts.
