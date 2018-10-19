@@ -1,0 +1,29 @@
+---
+title: "Precis"
+author: "Steven Espinoza"
+date: "10/19/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(readxl)
+```
+
+## Final Project Proposal
+
+On the night of August 28th, 2018, an election upset took place in Florida's Democratic Primary for the governor's election. Gwen Graham, the daughter of a former popular Democratic governor of Florida, had long been seen as the establishment favorite, given her name recognition and centrist political tendencies. Every single poll in the weeks leading up to election night had her in first place, and by wide margins. However, as the election results rolled in through the night, it became clear that Andrew Gillum, a dark horse candidate far outspent by his competitors and with relatively little name recognition, would be that night's Democratic primary champion. Running as a more progressive alternative to the other Democratic candidates for governor that night, Gillum won when nobody expected it. It was a stunning event in Florida, a state  known for generally electing more moderate Democrats, such as Senator Bill Nelson and Representative Debbie Wasserman-Schultz. He now faces against Ron Desantis, a staunchly-conservative Trump-backed candidate, for the Florida governor's seat.
+
+The aim of this project is to analyze the results of Florida's Democratic primary for governor on August 28th in order to understand why  Gillum won. Many media outlets cited that the Democratic primary in Florida this year saw the highest turnout level in years, subtly implying that this is what propelled Gillum to victory, so my first goal would be to test this hypothesis by looking at county-level data provided by the State of Florida, as well as precinct-level data provided by six or seven different counties, including the counties that contain cities like Miami, West Palm Beach, Orlando, Tampa, Jacksonville, and Tallahassee. I would test this hypothesis probably with a regression analysis, and hope to use the Leaflet package to make choropleth maps that show the change in turnout by county from years previous. Other packages and tools I would like to use might emerge as I continue with the analysis and begin to see what would be most useful for a deeper understanding.
+
+## Data
+The data to conduct this analysis would have to come from multiple sources. First, I would need to find voter registration statistics over time and compare total registration numbers to the amounts voted in order to see what the turnout level was in 2018, and I would want to graph how this has compared to past gubernatorial election years in Florida. The Florida department of state keeps these "bookclosing" statistics here: https://dos.myflorida.com/elections/data-statistics/voter-registration-statistics/bookclosing/
+
+The graph below shows 2018 voter registration statistics as of July 30, 2018, the last possible day to register to vote for the governor's primary.
+```{r}
+voterstats2018 <- read_excel('2018pri_party.xlsx')
+knitr::kable(glimpse(voterstats2018))
+```
+The goal is to use the website provided above to see these numbers over time. The data that is publicly available goes back to 1994.
